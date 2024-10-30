@@ -1,0 +1,47 @@
+package com.example.android_2024_m1_03;
+
+import android.os.Bundle;
+
+import androidx.activity.EdgeToEdge;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
+import android.os.Bundle;
+import android.util.Log;
+import androidx.appcompat.app.AppCompatActivity;
+import java.util.Arrays;
+import java.util.Random;
+
+public class MainActivity extends AppCompatActivity {
+
+    private static final String TAG = "MainActivity";
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        // Crear un arreglo con 1 millón de elementos enteros de manera aleatoria
+        int[] array = new int[1000000];
+        Random random = new Random();
+        for (int i = 0; i < array.length; i++) {
+            array[i] = random.nextInt();
+        }
+
+        // Medir el tiempo de inicio
+        long startTime = System.currentTimeMillis();
+
+        // Ordenar los elementos
+        Arrays.sort(array);
+
+        // Medir el tiempo de fin
+        long endTime = System.currentTimeMillis();
+
+        // Calcular el tiempo transcurrido
+        long elapsedTime = endTime - startTime;
+
+        // Imprimir en el logcat los resultados obtenidos
+        Log.d(TAG, "Tiempo de ordenamiento: " + elapsedTime + " milisegundos");
+    }
+}
